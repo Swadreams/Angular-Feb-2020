@@ -6,3 +6,9 @@ svg#clouds {
   z-index: -10;
   width: 1920px;
 }
+
+
+.acm-card{
+  width: 60%;
+  margin: 0 auto;
+}
