@@ -12,3 +12,7 @@
     "node_modules/bootstrap/dist/css/bootstrap.css",
  5. Similarly do for font-awesome
   "node_modules/font-awesome/css/font-awesome.css",
+
+
+ 6. Created Home Component (ng g c Home)
+ 7. Updated Html file, css files as per visual requirement.
