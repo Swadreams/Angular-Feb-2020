@@ -2,5 +2,9 @@
 Angualar Course Management Application
 
 #02-Feb-2020
-1. Angular ngModel
-2. Created a new project.
+# To run this project follow below commands.
+    1. git clone https://github.com/Swadreams/Angular-Feb-2020.git
+    2. go to folder AngularCourseManagement
+    3. npm install
+    4. npm start
+
