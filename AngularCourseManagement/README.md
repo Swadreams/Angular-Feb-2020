@@ -26,5 +26,10 @@
  10. Exported course list component by adding it into the exports array of course.module
  11. Used it into the App.component.html
  12. Created table structure in course-list.component
- 13. Added data into the courses variable 
+ 13. Added data into the courses variable
  14. Iterated courses on course-list.component.html
+ 15. Applied different pipes to the varius fields.
+
+# Creating Reusable Component
+  16. Create Star Componet (ng g c shared/star)
+  17. 

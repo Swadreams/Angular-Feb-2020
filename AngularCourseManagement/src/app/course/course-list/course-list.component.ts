@@ -13,6 +13,10 @@ export class CourseListComponent implements OnInit {
     this.getCourses();
   }
 
+  onStarClicked(event) {
+    alert(event);
+  }
+
   getCourses() {
     this.courses =  [
         {

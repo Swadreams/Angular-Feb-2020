@@ -19,11 +19,14 @@
           <td>
             <img [src]="course.imageUrl" alt="" width='50'>
           </td>
-          <td> {{ course.courseName }} </td>
+          <td> {{ course.courseName | uppercase }} </td>
           <td> {{ course.trainer }} </td>
-          <td> {{ course.nextBatchDate }} </td>
-          <td> {{ course.price }} </td>
-          <td> {{ course.starRating }} </td>
+          <td> {{ course.nextBatchDate | date : 'dd-MMM-yyyy' }} </td>
+          <td> {{ course.price | currency : 'INR' : 'symbol': '1.2-3' }} </td>
+          <td>
+            <!-- {{ course.starRating }} -->
+            <app-star [rating]='course.starRating' (starClick)='onStarClicked($event)'></app-star>
+          </td>
         </tr>
       </tbody>
     </table>
