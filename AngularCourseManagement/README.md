@@ -14,5 +14,15 @@
   "node_modules/font-awesome/css/font-awesome.css",
 
 
+# Creating a Component (ng g c comp_name) [Home.Component] 
  6. Created Home Component (ng g c Home)
  7. Updated Html file, css files as per visual requirement.
+
+# Created Course Module ()
+ 8. ng g m course
+
+# Creating another component [CourseList.Component]
+ 9. Created Course List Component
+ 10. Exported course list component by adding it into the exports array of course.module
+ 11. Used it into the App.component.html
+
