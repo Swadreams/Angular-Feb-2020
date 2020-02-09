@@ -3,7 +3,12 @@
     <h2> Courses List </h2>
   </div>
   <div class="card-body text-center">
-    <table class="table">
+
+    <div *ngIf='errorMessage' class="alert alert-danger">
+      {{errorMessage}}
+    </div>
+
+    <table class="table" *ngIf='courses'>
       <thead class="thead-dark">
         <tr>
           <th>Image </th>

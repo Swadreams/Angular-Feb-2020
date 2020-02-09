@@ -8,6 +8,7 @@ import { CourseService } from '../course.service';
 })
 export class CourseListComponent implements OnInit {
   courses;
+  errorMessage;
 
   constructor(private courseService: CourseService ) { }
 
@@ -25,7 +26,7 @@ export class CourseListComponent implements OnInit {
         .subscribe(response => {
           this.courses = response;
         },
-        error => console.log(error)
+        error => this.errorMessage = error.message
         );
   }
 

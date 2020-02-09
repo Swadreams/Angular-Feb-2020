@@ -11,4 +11,11 @@ svg#clouds {
 .acm-card{
   width: 60%;
   margin: 0 auto;
+  margin-top: 50px;
+}
+
+
+.admin-form {
+  width: 450px;
+  height: 500px;
 }
