@@ -32,4 +32,5 @@
 
 # Creating Reusable Component
   16. Create Star Componet (ng g c shared/star)
-  17. 
+  17. Added input and output properties
+  18. Emmited and events to parent component
