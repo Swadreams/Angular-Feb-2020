@@ -5,6 +5,7 @@ import { CourseListComponent } from './course/course-list/course-list.component'
 import { LoginComponent } from './admin/login/login.component';
 import { SignupComponent } from './admin/signup/signup.component';
 import { AuthGuard } from './shared/auth.guard';
+import { CourseDetailsComponent } from './course/course-details/course-details.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'home', component: HomeComponent, canActivate: [ AuthGuard ]},
   {path: 'courses', component: CourseListComponent, canActivate: [ AuthGuard ]},
+  {path: 'course-details/:id', component: CourseDetailsComponent },
   {path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 

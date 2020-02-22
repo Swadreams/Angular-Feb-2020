@@ -12,6 +12,14 @@ export class LoginComponent implements OnInit {
   constructor(private route: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.authState.subscribe(
+      user => {
+        if (user) {
+          this.route.navigate(['/courses']);
+        }
+      },
+      error => console.log(error)
+    );
   }
 
   login(form) {

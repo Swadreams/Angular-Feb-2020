@@ -20,7 +20,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = 'let course of courses'>
+        <tr *ngFor = 'let course of courses'
+            [routerLink]="['/course-details', course.courseId]"
+            style='cursor: pointer;'>
           <td>
             <img [src]="course.imageUrl" alt="" width='50'>
           </td>

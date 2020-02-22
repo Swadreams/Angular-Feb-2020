@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../course.service';
+import { FbCourseService } from 'src/app/firebase/fb-course.service';
 
 @Component({
   selector: 'app-course-list',
@@ -10,7 +11,10 @@ export class CourseListComponent implements OnInit {
   courses;
   errorMessage;
 
-  constructor(private courseService: CourseService ) { }
+  constructor(
+    private courseService: CourseService,
+    private fbCourseService: FbCourseService
+    ) { }
 
   ngOnInit() {
      this.getCourses();
@@ -22,12 +26,29 @@ export class CourseListComponent implements OnInit {
 
   getCourses() {
    // this.courses =
-   this.courseService.getCourses()
-        .subscribe(response => {
-          this.courses = response;
-        },
-        error => this.errorMessage = error.message
-        );
+  //  this.courseService.getCourses()
+  //       .subscribe(response => {
+  //         this.courses = response;
+  //       },
+  //       error => this.errorMessage = error.message
+  //       );
+
+    this.fbCourseService.getCourses()
+        .subscribe(
+          response => {
+            let coursesData = [];
+            response.forEach(item => {
+              const course: any = item.payload.val();
+              course.courseId = item.payload.key;
+              coursesData.push(course);
+            });
+            this.courses = coursesData;
+            console.log(this.courses);
+          },
+          error => {
+            console.log(error);
+          }
+    );
   }
 
 }

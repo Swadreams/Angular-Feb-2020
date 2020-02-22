@@ -20,6 +20,7 @@
                required
                ngModel
                email
+               value='test@test.com'
                #emailVar=ngModel>
         <div *ngIf='emailVar.touched && !emailVar.value'
               class="alert alert-danger">
@@ -43,6 +44,7 @@
                name="pswd"
                required
                ngModel
+               value='test123'
                #password=ngModel>
         <div *ngIf='form.controls.pswd &&
                     form.controls.pswd.touched &&

@@ -5,7 +5,10 @@ import { AngularFireAuth } from 'angularfire2/auth';
   providedIn: 'root'
 })
 export class AuthService {
+  authState;
   constructor(private appAuth: AngularFireAuth) {
+    // authSate to check user session.
+    this.authState = this.appAuth.authState;
   }
 
   sessionExist() {
