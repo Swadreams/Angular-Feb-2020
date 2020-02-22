@@ -5,8 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
-
-
+import { FirebaseModule } from '../firebase/firebase/firebase.module';
 
 @NgModule({
   declarations: [LoginComponent, SignupComponent],
@@ -14,7 +13,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FirebaseModule
   ],
 })
 export class AdminModule { }

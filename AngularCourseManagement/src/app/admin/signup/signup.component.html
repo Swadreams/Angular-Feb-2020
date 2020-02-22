@@ -13,9 +13,22 @@
                name="email"
                formControlName='email'
                >
-        <div *ngIf='formControls.email.errors && formControls.email.errors.required'
+        <div *ngIf='formControls.email.touched &&
+                    formControls.email.errors &&
+                    formControls.email.errors.space'
+            class="alert alert-danger">
+           Space is not allowed.
+         </div>
+        <div *ngIf='formControls.email.touched &&
+                    formControls.email.errors &&
+                    formControls.email.errors.required'
             class="alert alert-danger">
            Please enter Email.
+         </div>
+        <div *ngIf='formControls.email.errors
+                    && formControls.email.errors.minlength'
+            class="alert alert-danger">
+           Please enter minimum {{formControls.email.errors.minlength.requiredLength}} characters.
          </div>
       </div>
       <div class="form-group">
@@ -28,7 +41,7 @@
                formControlName='password'>
       </div>
       <div class="text-center">
-        <button type="submit" class="btn btn-primary col-sm-4">Submit</button>
+        <button type="submit" class="btn btn-primary col-sm-4" [disabled]='form.invalid'>Submit</button>
       </div>
     </form>
   </div>

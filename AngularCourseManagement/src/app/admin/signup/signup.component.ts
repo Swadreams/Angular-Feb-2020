@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { SpaceValidator } from '../space.validator';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +11,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   form;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private authService: AuthService,
+              private route: Router) {
+  }
 
   get formControls() {
     return this.form.controls;
@@ -20,13 +26,25 @@ export class SignupComponent implements OnInit {
 
   createForm() {
    this.form = this.fb.group({
-      email: ['test@test.com', [Validators.required, Validators.minLength(2)]],
+      email: ['', [
+                  Validators.required,
+                  Validators.minLength(3),
+                  SpaceValidator.canNotContainSpace],
+                ],
       password: ''
    });
   }
 
   signup() {
-    console.log(this.form);
+    const data = this.form.value;
+    this.authService.signup(data.email, data.password)
+        .then(
+          response => {
+            alert('User created Successfully.');
+            this.route.navigate(['/home']);
+          },
+          error => alert('Can not create user at the moment. Please try again.')
+        );
   }
 
 }
