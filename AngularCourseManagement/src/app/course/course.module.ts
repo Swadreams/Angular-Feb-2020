@@ -4,6 +4,8 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { StarComponent } from '../shared/star/star.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { RouterModule } from '@angular/router';
+import { CourseEditComponent } from './course-edit/course-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -11,11 +13,14 @@ import { RouterModule } from '@angular/router';
   declarations: [
     CourseListComponent,
     StarComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    CourseEditComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CourseListComponent
