@@ -16,8 +16,8 @@ export class FbCourseService {
     return this.db.object(`/courses/${courseId}`).snapshotChanges();
   }
 
-  updateCourse(courseId) {
-    return this.db.object(`/courses/${courseId}`).valueChanges();
+  updateCourse(courseId, course) {
+    return this.db.object(`/courses/${courseId}`).update(course);
   }
 
   deleteCourse(courseId) {

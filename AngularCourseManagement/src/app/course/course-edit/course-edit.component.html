@@ -6,7 +6,7 @@
   <div class="card-body">
     <div class="row">
       <div class="col-sm-6">
-          <form [formGroup]='courseForm'>
+          <form [formGroup]='courseForm' (ngSubmit)='submitForm()'>
 
             <div class="form-group">
               <label>Course Name :</label>
@@ -14,6 +14,57 @@
                      class="form-control"
                      formControlName='courseName'>
             </div>
+
+            <div class="form-group">
+              <label>Course Code :</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName='courseCode'>
+            </div>
+
+            <div class="form-group">
+              <label>Image URL :</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName='imageUrl'>
+            </div>
+
+            <div class="form-group">
+              <label>Next Batch Date :</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName='nextBatchDate'>
+            </div>
+
+            <div class="form-group">
+              <label>Price :</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName='price'>
+            </div>
+
+            <div class="form-group">
+              <label>Star Rating :</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName='starRating'>
+            </div>
+
+            <div class="form-group">
+              <label>Trainer :</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName='trainer'>
+            </div>
+
+            <div class="form-group">
+              <label>Description :</label>
+              <textarea class="form-control"
+                        formControlName='description'>
+              </textarea>
+            </div>
+
+            <button type='submit' class="btn btn-primary"> Update Course </button>
 
           </form>
       </div>
