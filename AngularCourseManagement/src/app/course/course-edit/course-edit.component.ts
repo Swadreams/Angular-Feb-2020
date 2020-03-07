@@ -78,17 +78,36 @@ export class CourseEditComponent implements OnInit {
   }
 
   submitForm() {
-    this.fbCourseServcie.updateCourse(this.courseId, this.courseForm.value)
+    if (this.isNewCourse) {
+      this.addCourse();
+    } else {
+      this.updateCourse();
+    }
+  }
+
+  addCourse() {
+    this.fbCourseServcie.addCourse(this.courseForm.value)
         .then(
           response => {
-            alert('Course Updated Successfully.');
-            this.router.navigate(['/course-details', this.courseId]);
+            alert('New Course Added Successfully.');
+            this.router.navigate(['/courses']);
           },
-          error => {
-            console.log('Error', error);
-            alert('Can not update the course at the moment. ');
-          }
+          error => console.log(error)
         );
+  }
+
+  updateCourse() {
+    this.fbCourseServcie.updateCourse(this.courseId, this.courseForm.value)
+    .then(
+      response => {
+        alert('Course Updated Successfully.');
+        this.router.navigate(['/course-details', this.courseId]);
+      },
+      error => {
+        console.log('Error', error);
+        alert('Can not update the course at the moment. ');
+      }
+    );
   }
 
 }

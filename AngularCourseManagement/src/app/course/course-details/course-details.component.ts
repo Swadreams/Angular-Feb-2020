@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FbCourseService } from 'src/app/firebase/fb-course.service';
 
 @Component({
@@ -10,9 +10,11 @@ import { FbCourseService } from 'src/app/firebase/fb-course.service';
 export class CourseDetailsComponent implements OnInit {
   courseId;
   course;
+  showMore = false;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private fbCourseServcie: FbCourseService
   ) { }
 
@@ -33,6 +35,24 @@ export class CourseDetailsComponent implements OnInit {
             this.course.courseId = response.payload.key;
           }
         );
+  }
+
+  deleteCourse() {
+    const action = confirm('Do you really want to delete this coure?');
+
+    if (action) {
+      this.fbCourseServcie.deleteCourse(this.courseId)
+          .then(
+            () => {
+              alert('Course Deleted Successfully.');
+              this.router.navigate(['/courses']);
+            }
+          );
+    }
+  }
+
+  showMoreText() {
+    this.showMore = !this.showMore;
   }
 
 }

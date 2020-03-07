@@ -1,6 +1,6 @@
 <div class="card acm-card">
   <div class="card-header">
-    <h3> Update Course </h3>
+    <h3> {{isNewCourse ? 'Add New' : 'Update'}} Course </h3>
   </div>
 
   <div class="card-body">
@@ -64,10 +64,18 @@
               </textarea>
             </div>
 
-            <button type='submit' class="btn btn-primary"> Update Course </button>
+            <button type='submit' class="btn btn-primary"> {{isNewCourse ? 'Add New' : 'Update'}} Course </button>
 
           </form>
       </div>
     </div>
   </div>
+
+
+  <div class="card-footer text-right">
+    <button class="btn btn-primary acm-button" [routerLink]="['/courses']">
+      Cancel
+    </button>
+  </div>
+
 </div>

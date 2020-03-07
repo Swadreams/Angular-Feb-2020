@@ -6,6 +6,7 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import { RouterModule } from '@angular/router';
 import { CourseEditComponent } from './course-edit/course-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SummaryPipe } from './pipe/summary.pipe';
 
 
 
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CourseListComponent,
     StarComponent,
     CourseDetailsComponent,
-    CourseEditComponent
+    CourseEditComponent,
+    SummaryPipe
   ],
   imports: [
     CommonModule,

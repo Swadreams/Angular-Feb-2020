@@ -61,7 +61,10 @@
             Course Description :
           </div>
           <div class="col-sm-9">
-            {{course.description}}
+            {{course.description | summary : showMore}}
+            <button class="btn btn-outline-primary" (click)='showMoreText()'>
+              Show {{showMore ? 'Less' : 'More'}}
+            </button>
           </div>
         </div>
         <hr>
@@ -83,7 +86,7 @@
     <button class="btn btn-warning acm-button" [routerLink]="['/course-edit', courseId]">
       Edit
     </button>
-    <button class="btn btn-danger acm-button">
+    <button class="btn btn-danger acm-button" (click)="deleteCourse()">
       Delete
     </button>
   </div>

@@ -4,6 +4,8 @@
   </div>
   <div class="card-body text-center">
 
+    <div class="spinner-border text-danger acm-spinner" *ngIf='!courses'></div>
+
     <div *ngIf='errorMessage' class="alert alert-danger">
       {{errorMessage}}
     </div>
